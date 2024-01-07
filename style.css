@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;1,400&family=EB+Garamond:wght@400;800&display=swap');
+/* font-family: 'Cormorant Garamond', serif;
+font-family: 'EB Garamond', serif; */
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: #e5eaf5;
+}
+
+header nav h1{
+    width: 100%;
+    height: 10vh;
+    color: #ECE3CE;
+    background-color: #232D3F;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'EB Garamond', serif;
+    font-size: 2rem;
+}
+header nav h1 span{
+    color: #BB2525;
+}
+.sem{
+    width: 100%;
+    height: 5vh;
+    background-color:#b02424;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center ;
+}
+.sem a{
+    text-decoration: none;
+    font-family: 'EB Garamond', serif;
+    font-size: 16px;
+    color: #ECE3CE;
+    margin:0px 10px;
+}
+.cont{
+    display: flex;
+    justify-content: center;
+    align-items: center ;
+    flex-direction: column;
+}
+.box{
+    margin: 7vh 0px;
+    width: 80vw;
+    height: 80vh;
+    /* background-color: #232D3F; */
+    background-color: transparent;
+    backdrop-filter: blur(10px);
+    box-shadow: 0px 0px 10px 1px #b02424 ;
+}
