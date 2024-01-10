@@ -1,3 +1,13 @@
+window.addEventListener('DOMContentLoaded',function(){
+  fetch('header.html')
+  .then(response => response.text)
+  .then(data =>{
+    document.getElementById('head').innerHRML = data;
+  })
+  .catch(error => {
+    console.error('Error fetching header content:', error); 
+});
+
 function copyTextFromBox(boxNumber) {
     var boxText = document.querySelectorAll('.box')[boxNumber - 1].querySelector('p').innerText;
     copyTextToClipboard(boxText);
