@@ -26,20 +26,30 @@ header nav h1 span{
 }
 .sem{
     width: 100%;
-    height: 5vh;
+    height: 10vh;
     background-color:#b02424;
     display: flex;
     justify-content: flex-start;
     align-items: center ;
 }
-select{
-    border:none;
-    padding: 10px 20px;
-    border-radius:5px;
+.dropdown {
+    position: relative;
+    display: inline-block;
   }
   
-  select:focus{
-    outline:none;
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: flex;
+    flex-direction: column;
   }
 .cont{
     display: flex;
