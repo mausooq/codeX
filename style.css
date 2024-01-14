@@ -32,13 +32,15 @@ header nav h1 span{
     justify-content: flex-start;
     align-items: center ;
 }
-.sem a{
-    text-decoration: none;
-    font-family: 'EB Garamond', serif;
-    font-size: 16px;
-    color: #ECE3CE;
-    margin:0px 10px;
-}
+select{
+    border:none;
+    padding: 10px 20px;
+    border-radius:5px;
+  }
+  
+  select:focus{
+    outline:none;
+  }
 .cont{
     display: flex;
     justify-content: center;
