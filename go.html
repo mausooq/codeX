@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeX - Go Programming</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <!-- Header and Navigation same as other pages -->
+    
+        <nav>
+            <div class="nav-content">
+                <div class="logo">
+                    <h1>Code<span>X</span></h1>
+                </div>
+                <div class="nav-profile">
+                    <div class="profile-mini">
+                        <img src="profile.jpeg" alt="Abdul Mausooq">
+                    </div>
+                    <div class="nav-menu-backdrop"></div>
+                    <div class="nav-menu">
+                        <a href="index.html#home"><i class="fas fa-home"></i>Home</a>
+                        <a href="index.html#languages"><i class="fas fa-code"></i>Languages</a>
+                        <a href="index.html#about"><i class="fas fa-user"></i>About</a>
+                        <a href="index.html#contact"><i class="fas fa-envelope"></i>Contact</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    
+    
+    <div class="sem">
+        <a href="c.html">C</a>
+        <a href="python.html">Python</a>
+        <a href="java.html">Java</a>
+        <a href="go.html" class="active">Go</a>
+        <a href="javascript.html">JavaScript</a>
+        <a href="rust.html">Rust</a>
+    </div>
+
+    <div class="cont">
+        <div class="box" id="1">
+            <h3>Hello World in Go</h3>
+            <pre><code>
+package main
+
+import "fmt"
+
+func main() {
+    fmt.Println("Hello, World!")
+}
+            </code></pre>
+        </div>
+
+        <div class="box" id="2">
+            <h3>Variables and Types</h3>
+            <pre><code>
+package main
+
+import "fmt"
+
+func main() {
+    // Variable declarations
+    var name string = "John"
+    age := 25
+    const pi float64 = 3.14159
+
+    // Multiple variable declaration
+    var (
+        isStudent bool = true
+        score     int  = 95
+    )
+
+    fmt.Printf("Name: %s, Age: %d\n", name, age)
+    fmt.Printf("Is Student: %t, Score: %d\n", isStudent, score)
+    fmt.Printf("Pi: %.2f\n", pi)
+}
+            </code></pre>
+        </div>
+
+        <div class="box" id="3">
+            <h3>Arrays and Slices</h3>
+            <pre><code>
+package main
+
+import "fmt"
+
+func main() {
+    // Array
+    var numbers [5]int = [5]int{1, 2, 3, 4, 5}
+    
+    // Slice
+    slice := []string{"apple", "banana", "orange"}
+    
+    // Append to slice
+    slice = append(slice, "grape")
+    
+    fmt.Println("Array:", numbers)
+    fmt.Println("Slice:", slice)
+    fmt.Println("Slice length:", len(slice))
+}
+            </code></pre>
+        </div>
+
+        <div class="box" id="4">
+            <h3>Functions and Methods</h3>
+            <pre><code>
+package main
+
+import "fmt"
+
+type Rectangle struct {
+    width  float64
+    height float64
+}
+
+func (r Rectangle) area() float64 {
+    return r.width * r.height
+}
+
+func add(a, b int) int {
+    return a + b
+}
+
+func main() {
+    rect := Rectangle{width: 10, height: 5}
+    fmt.Printf("Rectangle area: %.2f\n", rect.area())
+    
+    sum := add(10, 20)
+    fmt.Printf("Sum: %d\n", sum)
+}
+            </code></pre>
+        </div>
+
+        <div class="box" id="5">
+            <h3>Goroutines and Channels</h3>
+            <pre><code>
+package main
+
+import (
+    "fmt"
+    "time"
+)
+
+func worker(id int, channel chan string) {
+    for i := 0; i < 3; i++ {
+        fmt.Printf("Worker %d: iteration %d\n", id, i)
+        time.Sleep(time.Second)
+    }
+    channel <- fmt.Sprintf("Worker %d done", id)
+}
+
+func main() {
+    channel := make(chan string)
+    
+    go worker(1, channel)
+    go worker(2, channel)
+    
+    fmt.Println(<-channel)
+    fmt.Println(<-channel)
+}
+            </code></pre>
+        </div>
+
+        <div class="box" id="6">
+            <h3>Error Handling</h3>
+            <pre><code>
+package main
+
+import (
+    "errors"
+    "fmt"
+)
+
+func divide(a, b float64) (float64, error) {
+    if b == 0 {
+        return 0, errors.New("division by zero")
+    }
+    return a / b, nil
+}
+
+func main() {
+    result, err := divide(10, 2)
+    if err != nil {
+        fmt.Println("Error:", err)
+        return
+    }
+    fmt.Printf("Result: %.2f\n", result)
+    
+    result, err = divide(10, 0)
+    if err != nil {
+        fmt.Println("Error:", err)
+    }
+}
+            </code></pre>
+        </div>
+
+        <div class="box" id="7">
+            <h3>Maps</h3>
+            <pre><code>
+package main
+
+import "fmt"
+
+func main() {
+    // Create a map
+    scores := map[string]int{
+        "Alice": 95,
+        "Bob":   89,
+        "Carol": 92,
+    }
+    
+    // Add/Update value
+    scores["David"] = 88
+    
+    // Delete value
+    delete(scores, "Bob")
+    
+    // Check if key exists
+    if score, exists := scores["Alice"]; exists {
+        fmt.Printf("Alice's score: %d\n", score)
+    }
+    
+    // Print all scores
+    for name, score := range scores {
+        fmt.Printf("%s: %d\n", name, score)
+    }
+}
+            </code></pre>
+        </div>
+
+        <div class="box" id="8">
+            <h3>Interfaces</h3>
+            <pre><code>
+package main
+
+import (
+    "fmt"
+    "math"
+)
+
+type Shape interface {
+    area() float64
+}
+
+type Circle struct {
+    radius float64
+}
+
+type Square struct {
+    side float64
+}
+
+func (c Circle) area() float64 {
+    return math.Pi * c.radius * c.radius
+}
+
+func (s Square) area() float64 {
+    return s.side * s.side
+}
+
+func main() {
+    shapes := []Shape{
+        Circle{radius: 5},
+        Square{side: 4},
+    }
+    
+    for _, shape := range shapes {
+        fmt.Printf("Area: %.2f\n", shape.area())
+    }
+}
+            </code></pre>
+        </div>
+
+        <div class="box" id="9">
+            <h3>File Handling</h3>
+            <pre><code>
+package main
+
+import (
+    "fmt"
+    "io/ioutil"
+    "os"
+)
+
+func main() {
+    // Writing to file
+    data := []byte("Hello, Go!")
+    err := ioutil.WriteFile("test.txt", data, 0644)
+    if err != nil {
+        fmt.Println("Error writing file:", err)
+        return
+    }
+
+    // Reading from file
+    content, err := ioutil.ReadFile("test.txt")
+    if err != nil {
+        fmt.Println("Error reading file:", err)
+        return
+    }
+    
+    fmt.Printf("File content: %s\n", content)
+}
+            </code></pre>
+        </div>
+
+        <div class="box" id="10">
+            <h3>Web Server</h3>
+            <pre><code>
+package main
+
+import (
+    "fmt"
+    "net/http"
+)
+
+func handler(w http.ResponseWriter, r *http.Request) {
+    fmt.Fprintf(w, "Hello, you've requested: %s\n", r.URL.Path)
+}
+
+func main() {
+    http.HandleFunc("/", handler)
+    
+    fmt.Println("Server starting on port 8080...")
+    if err := http.ListenAndServe(":8080", nil); err != nil {
+        fmt.Println("Error:", err)
+    }
+}
+            </code></pre>
+        </div>
+    </div>
+
+    <!-- Same script as other pages -->
+    <script>
+        document.querySelectorAll('.box').forEach(box => {
+            const codeBlock = box.querySelector('code');
+            const copyButton = document.createElement('button');
+            copyButton.className = 'copy-btn';
+            copyButton.innerHTML = '<i class="fas fa-copy"></i> Copy';
+            
+            copyButton.addEventListener('click', async () => {
+                try {
+                    await navigator.clipboard.writeText(codeBlock.textContent.trim());
+                    copyButton.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                    copyButton.classList.add('copied');
+                    setTimeout(() => {
+                        copyButton.innerHTML = '<i class="fas fa-copy"></i> Copy';
+                        copyButton.classList.remove('copied');
+                    }, 2000);
+                } catch (err) {
+                    console.error('Failed to copy text: ', err);
+                }
+            });
+            
+            box.appendChild(copyButton);
+        });
+    </script>
+</body>
+</html> 

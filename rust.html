@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeX - Rust Programming</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+   
+        <nav>
+            <div class="nav-content">
+                <div class="logo">
+                    <h1>Code<span>X</span></h1>
+                </div>
+                <div class="nav-profile">
+                    <div class="profile-mini">
+                        <img src="profile.jpeg" alt="Abdul Mausooq">
+                    </div>
+                    <div class="nav-menu-backdrop"></div>
+                    <div class="nav-menu">
+                        <a href="index.html#home"><i class="fas fa-home"></i>Home</a>
+                        <a href="index.html#languages"><i class="fas fa-code"></i>Languages</a>
+                        <a href="index.html#about"><i class="fas fa-user"></i>About</a>
+                        <a href="index.html#contact"><i class="fas fa-envelope"></i>Contact</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+   
+    
+    <div class="sem">
+        <a href="c.html">C</a>
+        <a href="python.html">Python</a>
+        <a href="java.html">Java</a>
+        <a href="go.html">Go</a>
+        <a href="javascript.html">JavaScript</a>
+        <a href="rust.html" class="active">Rust</a>
+    </div>
+
+    <div class="cont">
+        <div class="box" id="1">
+            <h3>Hello World in Rust</h3>
+            <pre><code>
+fn main() {
+    println!("Hello, World!");
+}
+            </code></pre>
+        </div>
+
+        <div class="box" id="2">
+            <h3>Variables and Types</h3>
+            <pre><code>
+fn main() {
+    // Immutable by default
+    let name = "John";
+    
+    // Mutable variables
+    let mut age = 25;
+    age += 1;
+    
+    // Constants
+    const PI: f64 = 3.14159;
+    
+    // Multiple variables
+    let (x, y) = (1, 2);
+    
+    // Type annotations
+    let score: i32 = 100;
+    let grade: char = 'A';
+    let is_pass: bool = true;
+    
+    println!("Name: {}, Age: {}", name, age);
+    println!("Score: {}, Grade: {}", score, grade);
+}
+            </code></pre>
+        </div>
+
+        <div class="box" id="3">
+            <h3>Ownership and Borrowing</h3>
+            <pre><code>
+fn main() {
+    // Ownership
+    let s1 = String::from("hello");
+    let s2 = s1;  // s1 is moved to s2
+    // println!("{}", s1);  // This would cause an error
+    
+    // Borrowing
+    let s3 = String::from("world");
+    print_string(&s3);  // Passing reference
+    println!("{}", s3); // Still valid here
+}
+
+fn print_string(s: &String) {
+    println!("{}", s);
+}
+            </code></pre>
+        </div>
+
+        <div class="box" id="4">
+            <h3>Structs and Implementation</h3>
+            <pre><code>
+#[derive(Debug)]
+struct Rectangle {
+    width: u32,
+    height: u32,
+}
+
+impl Rectangle {
+    fn area(&self) -> u32 {
+        self.width * self.height
+    }
+    
+    fn new(width: u32, height: u32) -> Rectangle {
+        Rectangle { width, height }
+    }
+}
+
+fn main() {
+    let rect = Rectangle::new(30, 50);
+    println!("Area: {}", rect.area());
+    println!("Rectangle: {:?}", rect);
+}
+            </code></pre>
+        </div>
+
+        <div class="box" id="5">
+            <h3>Enums and Pattern Matching</h3>
+            <pre><code>
+enum Message {
+    Quit,
+    Move { x: i32, y: i32 },
+    Write(String),
+    ChangeColor(i32, i32, i32),
+}
+
+fn process_message(msg: Message) {
+    match msg {
+        Message::Quit => println!("Quit"),
+        Message::Move { x, y } => {
+            println!("Move to ({}, {})", x, y);
+        }
+        Message::Write(text) => println!("Text: {}", text),
+        Message::ChangeColor(r, g, b) => {
+            println!("Color: RGB({}, {}, {})", r, g, b);
+        }
+    }
+}
+
+fn main() {
+    let msg = Message::Write(String::from("Hello"));
+    process_message(msg);
+}
+            </code></pre>
+        </div>
+
+        <div class="box" id="6">
+            <h3>Error Handling</h3>
+            <pre><code>
+use std::fs::File;
+use std::io::ErrorKind;
+
+fn main() {
+    // Using Result
+    let f = File::open("hello.txt");
+    
+    let f = match f {
+        Ok(file) => file,
+        Err(error) => match error.kind() {
+            ErrorKind::NotFound => match File::create("hello.txt") {
+                Ok(fc) => fc,
+                Err(e) => panic!("Problem creating file: {:?}", e),
+            },
+            other_error => panic!("Problem opening file: {:?}", other_error),
+        },
+    };
+    
+    // Using unwrap_or_else
+    let f = File::open("hello.txt").unwrap_or_else(|error| {
+        panic!("Problem opening file: {:?}", error);
+    });
+}
+            </code></pre>
+        </div>
+
+        <div class="box" id="7">
+            <h3>Collections</h3>
+            <pre><code>
+fn main() {
+    // Vector
+    let mut vec = vec![1, 2, 3];
+    vec.push(4);
+    
+    // HashMap
+    use std::collections::HashMap;
+    let mut scores = HashMap::new();
+    scores.insert(String::from("Blue"), 10);
+    scores.insert(String::from("Red"), 50);
+    
+    // String
+    let mut s = String::from("Hello");
+    s.push_str(", World!");
+    
+    println!("Vector: {:?}", vec);
+    println!("HashMap: {:?}", scores);
+    println!("String: {}", s);
+}
+            </code></pre>
+        </div>
+
+        <div class="box" id="8">
+            <h3>Traits</h3>
+            <pre><code>
+trait Summary {
+    fn summarize(&self) -> String;
+}
+
+struct NewsArticle {
+    headline: String,
+    location: String,
+    author: String,
+}
+
+impl Summary for NewsArticle {
+    fn summarize(&self) -> String {
+        format!("{}, by {} ({})", 
+            self.headline, self.author, self.location)
+    }
+}
+
+fn main() {
+    let article = NewsArticle {
+        headline: String::from("Big News!"),
+        location: String::from("New York"),
+        author: String::from("John Doe"),
+    };
+    
+    println!("{}", article.summarize());
+}
+            </code></pre>
+        </div>
+
+        <div class="box" id="9">
+            <h3>Concurrency</h3>
+            <pre><code>
+use std::thread;
+use std::time::Duration;
+
+fn main() {
+    // Spawning threads
+    let handle = thread::spawn(|| {
+        for i in 1..10 {
+            println!("hi number {} from spawned thread!", i);
+            thread::sleep(Duration::from_millis(1));
+        }
+    });
+    
+    for i in 1..5 {
+        println!("hi number {} from main thread!", i);
+        thread::sleep(Duration::from_millis(1));
+    }
+    
+    handle.join().unwrap();
+}
+            </code></pre>
+        </div>
+
+        <div class="box" id="10">
+            <h3>Smart Pointers</h3>
+            <pre><code>
+use std::rc::Rc;
+
+enum List {
+    Cons(i32, Rc<List>),
+    Nil,
+}
+
+use List::{Cons, Nil};
+
+fn main() {
+    let a = Rc::new(Cons(5, Rc::new(Cons(10, Rc::new(Nil)))));
+    println!("Reference count after creating a = {}", Rc::strong_count(&a));
+    
+    let b = Cons(3, Rc::clone(&a));
+    println!("Reference count after creating b = {}", Rc::strong_count(&a));
+    
+    {
+        let c = Cons(4, Rc::clone(&a));
+        println!("Reference count after creating c = {}", Rc::strong_count(&a));
+    }
+    
+    println!("Reference count after c goes out of scope = {}", Rc::strong_count(&a));
+}
+            </code></pre>
+        </div>
+    </div>
+</body>
+</html> 

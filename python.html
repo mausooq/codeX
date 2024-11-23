@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeX - Python Programming</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    
+        <nav>
+            <div class="nav-content">
+                <div class="logo">
+                    <h1>Code<span>X</span></h1>
+                </div>
+                <div class="nav-profile">
+                    <div class="profile-mini">
+                        <img src="profile.jpeg" alt="Abdul Mausooq">
+                    </div>
+                    <div class="nav-menu-backdrop"></div>
+                    <div class="nav-menu">
+                        <a href="index.html#home"><i class="fas fa-home"></i>Home</a>
+                        <a href="index.html#languages"><i class="fas fa-code"></i>Languages</a>
+                        <a href="index.html#about"><i class="fas fa-user"></i>About</a>
+                        <a href="index.html#contact"><i class="fas fa-envelope"></i>Contact</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+   
+    
+    <div class="sem">
+        <a href="c.html">C</a>
+        <a href="python.html" class="active">Python</a>
+        <a href="java.html">Java</a>
+        <a href="go.html">Go</a>
+        <a href="javascript.html">JavaScript</a>
+        <a href="rust.html">Rust</a>
+    </div>
+
+    <div class="cont">
+        <div class="box" id="1">
+            <h3>Hello World Program</h3>
+            <pre><code>
+# Simple Hello World Program
+print("Hello, World!")
+            </code></pre>
+        </div>
+
+        <div class="box" id="2">
+            <h3>Calculator Program</h3>
+            <pre><code>
+def calculator(a, b, operation):
+    if operation == '+':
+        return a + b
+    elif operation == '-':
+        return a - b
+    elif operation == '*':
+        return a * b
+    elif operation == '/':
+        return a / b if b != 0 else "Error: Division by zero"
+
+# Example usage
+num1, num2 = 10, 5
+print(f"Addition: {calculator(num1, num2, '+')}")
+print(f"Subtraction: {calculator(num1, num2, '-')}")
+print(f"Multiplication: {calculator(num1, num2, '*')}")
+print(f"Division: {calculator(num1, num2, '/')}")
+            </code></pre>
+        </div>
+
+        <div class="box" id="3">
+            <h3>List Operations</h3>
+            <pre><code>
+# List operations demonstration
+my_list = [1, 2, 3, 4, 5]
+print(f"Original list: {my_list}")
+
+# Add element
+my_list.append(6)
+print(f"After append: {my_list}")
+
+# Remove element
+my_list.pop()
+print(f"After pop: {my_list}")
+
+# Slice list
+print(f"Sliced list: {my_list[1:4]}")
+
+# List comprehension
+squares = [x**2 for x in my_list]
+print(f"Squares: {squares}")
+            </code></pre>
+        </div>
+
+        <div class="box" id="4">
+            <h3>String Manipulation</h3>
+            <pre><code>
+text = "Python Programming"
+
+# String operations
+print(f"Original: {text}")
+print(f"Uppercase: {text.upper()}")
+print(f"Lowercase: {text.lower()}")
+print(f"Split words: {text.split()}")
+print(f"Replace: {text.replace('Python', 'Basic')}")
+print(f"Length: {len(text)}")
+            </code></pre>
+        </div>
+
+        <div class="box" id="5">
+            <h3>Dictionary Example</h3>
+            <pre><code>
+# Creating and using dictionary
+student = {
+    'name': 'John',
+    'age': 20,
+    'grades': [85, 90, 78]
+}
+
+print(f"Student name: {student['name']}")
+print(f"Age: {student['age']}")
+print(f"Average grade: {sum(student['grades'])/len(student['grades'])}")
+
+# Adding new key-value
+student['course'] = 'Python'
+print(f"Updated dictionary: {student}")
+            </code></pre>
+        </div>
+
+        <div class="box" id="6">
+            <h3>File Handling</h3>
+            <pre><code>
+# Writing and reading from a file
+# Writing to file
+with open('example.txt', 'w') as file:
+    file.write('Hello, this is a test file!\n')
+    file.write('Python is awesome!')
+
+# Reading from file
+with open('example.txt', 'r') as file:
+    content = file.read()
+    print(f"File contents:\n{content}")
+            </code></pre>
+        </div>
+
+        <div class="box" id="7">
+            <h3>Exception Handling</h3>
+            <pre><code>
+def divide_numbers(a, b):
+    try:
+        result = a / b
+        return result
+    except ZeroDivisionError:
+        return "Error: Division by zero!"
+    except TypeError:
+        return "Error: Invalid input types!"
+    finally:
+        print("Operation completed")
+
+print(divide_numbers(10, 2))
+print(divide_numbers(10, 0))
+            </code></pre>
+        </div>
+
+        <div class="box" id="8">
+            <h3>Classes and Objects</h3>
+            <pre><code>
+class Car:
+    def __init__(self, brand, model):
+        self.brand = brand
+        self.model = model
+        
+    def display_info(self):
+        return f"{self.brand} {self.model}"
+
+# Creating object
+my_car = Car("Toyota", "Camry")
+print(my_car.display_info())
+            </code></pre>
+        </div>
+
+        <div class="box" id="9">
+            <h3>List Comprehension</h3>
+            <pre><code>
+# Different list comprehension examples
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+# Even numbers
+evens = [x for x in numbers if x % 2 == 0]
+print(f"Even numbers: {evens}")
+
+# Squares
+squares = [x**2 for x in numbers]
+print(f"Squares: {squares}")
+
+# Filtered and modified
+filtered = [x*2 for x in numbers if x > 5]
+print(f"Filtered and doubled: {filtered}")
+            </code></pre>
+        </div>
+
+        <div class="box" id="10">
+            <h3>Lambda Functions</h3>
+            <pre><code>
+# Lambda function examples
+square = lambda x: x**2
+add = lambda x, y: x + y
+is_even = lambda x: x % 2 == 0
+
+numbers = [1, 2, 3, 4, 5]
+squared_numbers = list(map(square, numbers))
+even_numbers = list(filter(is_even, numbers))
+
+print(f"Squared: {squared_numbers}")
+print(f"Even numbers: {even_numbers}")
+print(f"Sum: {add(10, 20)}")
+            </code></pre>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.box').forEach(box => {
+            const codeBlock = box.querySelector('code');
+            const copyButton = document.createElement('button');
+            copyButton.className = 'copy-btn';
+            copyButton.innerHTML = '<i class="fas fa-copy"></i> Copy';
+            
+            copyButton.addEventListener('click', async () => {
+                try {
+                    await navigator.clipboard.writeText(codeBlock.textContent.trim());
+                    copyButton.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                    copyButton.classList.add('copied');
+                    setTimeout(() => {
+                        copyButton.innerHTML = '<i class="fas fa-copy"></i> Copy';
+                        copyButton.classList.remove('copied');
+                    }, 2000);
+                } catch (err) {
+                    console.error('Failed to copy text: ', err);
+                }
+            });
+            
+            box.appendChild(copyButton);
+        });
+    </script>
+</body>
+</html> 

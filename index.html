@@ -3,26 +3,202 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Program</title>
-   <link rel="stylesheet" href="style.css">
+    <title>CodeX - Programming Hub</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-   <header>
-      <nav>
-          <h1>
-              code<span>-Assasins</span>
-          </h1>
-      </nav>
-  </header>
-  <dev class="sem">
-  <div class="dropdown">
-      <button class="dropbtn">5sem</button>
-      <div class="dropdown-content">
-          <a href="dbms.html">DBMS</a>
-          <a href="ajs.html">AJS</a>
+    <header>
+        <nav>
+            <div class="nav-content">
+                <div class="logo">
+                    <h1>Code<span>X</span></h1>
+                </div>
+                <div class="nav-profile">
+                    <div class="profile-mini">
+                        <img src="profile.jpeg" alt="Abdul Mausooq">
+                    </div>
+                    <div class="nav-menu-backdrop"></div>
+                    <div class="nav-menu">
+                        <a href="#home"><i class="fas fa-home"></i>Home</a>
+                        <a href="#languages"><i class="fas fa-code"></i>Languages</a>
+                        <a href="#about"><i class="fas fa-user"></i>About</a>
+                        <a href="#contact"><i class="fas fa-envelope"></i>Contact</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <div class="programmer-animation">
+                    <img src="https://raw.githubusercontent.com/TheDudeThatCode/TheDudeThatCode/master/Assets/Developer.gif" alt="Programmer Animation">
+                </div>
+                <h1>Welcome to CodeX</h1>
+                <p>Your Ultimate Programming Learning Hub</p>
+                <div class="cta-buttons">
+                    <a href="#languages" class="cta-primary">Start Learning</a>
+                    <a href="https://github.com/mausooq" target="_blank" class="cta-secondary">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="languages" class="language-grid">
+            <h2>Programming Languages</h2>
+            <div class="grid">
+                <a href="c.html" class="card">
+                    <i class="fas fa-code"></i>
+                    <h3>C</h3>
+                    <p>Basic Programming Fundamentals</p>
+                </a>
+                <a href="python.html" class="card">
+                    <i class="fab fa-python"></i>
+                    <h3>Python</h3>
+                    <p>Simple and Powerful Programming</p>
+                </a>
+                <a href="java.html" class="card">
+                    <i class="fab fa-java"></i>
+                    <h3>Java</h3>
+                    <p>Object-Oriented Programming</p>
+                </a>
+                <a href="go.html" class="card">
+                    <i class="fab fa-google"></i>
+                    <h3>Go</h3>
+                    <p>Modern Systems Programming</p>
+                </a>
+                <a href="javascript.html" class="card">
+                    <i class="fab fa-js"></i>
+                    <h3>JavaScript</h3>
+                    <p>Web Development Essentials</p>
+                </a>
+                <a href="rust.html" class="card">
+                    <i class="fas fa-cogs"></i>
+                    <h3>Rust</h3>
+                    <p>Safe Systems Programming</p>
+                </a>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <h2>About <span>CodeX</span></h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p class="about-description">
+                        Welcome to CodeX, your premier destination for mastering programming languages. We provide a comprehensive learning platform with carefully curated examples, practical code snippets, and interactive features to make your coding journey successful.
+                    </p>
+                    
+                    <div class="features">
+                        <div class="feature">
+                            <i class="fas fa-code"></i>
+                            <h4>Clean Code</h4>
+                            <p>Well-structured examples with best practices and detailed explanations</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-copy"></i>
+                            <h4>Easy Copy</h4>
+                            <p>One-click code copying with syntax highlighting</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-mobile-alt"></i>
+                            <h4>Responsive</h4>
+                            <p>Seamless experience across all devices</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-book"></i>
+                            <h4>Rich Content</h4>
+                            <p>Comprehensive examples from basic to advanced</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-graduation-cap"></i>
+                            <h4>Learning Path</h4>
+                            <p>Structured curriculum for steady progress</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-sync-alt"></i>
+                            <h4>Regular Updates</h4>
+                            <p>Fresh content and latest programming practices</p>
+                        </div>
+                    </div>
+
+                    <div class="about-stats">
+                        <div class="stat">
+                            <span class="stat-number">6</span>
+                            <span class="stat-label">Languages</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">100+</span>
+                            <span class="stat-label">Examples</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">24/7</span>
+                            <span class="stat-label">Access</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <h2>Connect With <span>Me</span></h2>
+            <div class="contact-content">
+                <p class="contact-description">
+                    Feel free to reach out for collaborations, questions, or just to say hello! I'm always open to discussing new projects and opportunities.
+                </p>
+                
+                <div class="social-links">
+                    <a href="https://github.com/mausooq" target="_blank" class="social-link">
+                        <i class="fab fa-github"></i>
+                        <span>GitHub</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/abdul-mausooq-a26649249/" target="_blank" class="social-link">
+                        <i class="fab fa-linkedin"></i>
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="mailto:abdulmausooq@gmail.com" class="social-link">
+                        <i class="fas fa-envelope"></i>
+                        <span>Email</span>
+                    </a>
+                    <a href="https://mausooq.vercel.app/" target="_blank" class="social-link">
+                        <i class="fas fa-globe"></i>
+                        <span>Portfolio</span>
+                    </a>
+                </div>
+
+                <div class="contact-footer">
+                    <p>Full Stack Developer | Embedded Systems Engineer</p>
+                    <p>Based in India 🇮🇳</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 CodeX. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#languages">Languages</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </div>
         </div>
-    </dev>
-        
-   <script src="script.js"></script>
+    </footer>
+
+    <!-- Optional: Add smooth scroll behavior -->
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+    <script src="script.js"></script>
 </body>
 </html>

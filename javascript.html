@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeX - JavaScript Programming</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    
+        <nav>
+            <div class="nav-content">
+                <div class="logo">
+                    <h1>Code<span>X</span></h1>
+                </div>
+                <div class="nav-profile">
+                    <div class="profile-mini">
+                        <img src="profile.jpeg" alt="Abdul Mausooq">
+                    </div>
+                    <div class="nav-menu-backdrop"></div>
+                    <div class="nav-menu">
+                        <a href="index.html#home"><i class="fas fa-home"></i>Home</a>
+                        <a href="index.html#languages"><i class="fas fa-code"></i>Languages</a>
+                        <a href="index.html#about"><i class="fas fa-user"></i>About</a>
+                        <a href="index.html#contact"><i class="fas fa-envelope"></i>Contact</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+  
+    
+    <div class="sem">
+        <a href="c.html">C</a>
+        <a href="python.html">Python</a>
+        <a href="java.html">Java</a>
+        <a href="go.html">Go</a>
+        <a href="javascript.html" class="active">JavaScript</a>
+        <a href="rust.html">Rust</a>
+    </div>
+
+    <div class="cont">
+        <div class="box" id="1">
+            <h3>Variables and Data Types</h3>
+            <pre><code>
+// Variable declarations
+let name = "John";
+const age = 25;
+var isStudent = true;
+
+// Different data types
+let number = 42;
+let decimal = 3.14;
+let text = "Hello";
+let array = [1, 2, 3];
+let object = { key: "value" };
+
+console.log(typeof number);  // "number"
+console.log(typeof text);    // "string"
+console.log(typeof array);   // "object"
+            </code></pre>
+        </div>
+
+        <div class="box" id="2">
+            <h3>Functions and Arrow Functions</h3>
+            <pre><code>
+// Regular function
+function add(a, b) {
+    return a + b;
+}
+
+// Arrow function
+const multiply = (a, b) => a * b;
+
+// Function with default parameters
+const greet = (name = "Guest") => `Hello, ${name}!`;
+
+// Callback function
+const processUser = (callback) => {
+    const user = "John";
+    callback(user);
+};
+
+processUser((name) => {
+    console.log(`Processing ${name}`);
+});
+            </code></pre>
+        </div>
+
+        <div class="box" id="3">
+            <h3>Array Methods</h3>
+            <pre><code>
+const numbers = [1, 2, 3, 4, 5];
+
+// Map
+const doubled = numbers.map(num => num * 2);
+
+// Filter
+const evenNumbers = numbers.filter(num => num % 2 === 0);
+
+// Reduce
+const sum = numbers.reduce((acc, curr) => acc + curr, 0);
+
+// ForEach
+numbers.forEach(num => console.log(num));
+
+// Find
+const found = numbers.find(num => num > 3);
+
+console.log({ doubled, evenNumbers, sum, found });
+            </code></pre>
+        </div>
+
+        <div class="box" id="4">
+            <h3>Object Manipulation</h3>
+            <pre><code>
+const person = {
+    name: "John",
+    age: 30,
+    address: {
+        city: "New York",
+        country: "USA"
+    }
+};
+
+// Object destructuring
+const { name, age } = person;
+
+// Spread operator
+const updatedPerson = {
+    ...person,
+    age: 31,
+    occupation: "Developer"
+};
+
+// Object methods
+console.log(Object.keys(person));
+console.log(Object.values(person));
+console.log(Object.entries(person));
+            </code></pre>
+        </div>
+
+        <div class="box" id="5">
+            <h3>Promises and Async/Await</h3>
+            <pre><code>
+// Promise example
+const fetchData = () => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            const data = { id: 1, name: "User" };
+            resolve(data);
+            // reject("Error fetching data");
+        }, 2000);
+    });
+};
+
+// Using Promise
+fetchData()
+    .then(data => console.log(data))
+    .catch(error => console.error(error));
+
+// Using async/await
+async function getData() {
+    try {
+        const result = await fetchData();
+        console.log(result);
+    } catch (error) {
+        console.error(error);
+    }
+}
+            </code></pre>
+        </div>
+
+        <div class="box" id="6">
+            <h3>DOM Manipulation</h3>
+            <pre><code>
+// Creating elements
+const div = document.createElement('div');
+div.className = 'container';
+div.innerHTML = '<p>Hello World</p>';
+
+// Selecting elements
+const element = document.querySelector('.class-name');
+const elements = document.querySelectorAll('.item');
+
+// Event handling
+element.addEventListener('click', (e) => {
+    console.log('Clicked!', e.target);
+});
+
+// Modifying styles
+element.style.backgroundColor = 'blue';
+element.classList.add('active');
+element.classList.remove('inactive');
+            </code></pre>
+        </div>
+
+        <div class="box" id="7">
+            <h3>Classes and Inheritance</h3>
+            <pre><code>
+class Animal {
+    constructor(name) {
+        this.name = name;
+    }
+
+    speak() {
+        return `${this.name} makes a sound.`;
+    }
+}
+
+class Dog extends Animal {
+    constructor(name, breed) {
+        super(name);
+        this.breed = breed;
+    }
+
+    speak() {
+        return `${this.name} barks!`;
+    }
+}
+
+const dog = new Dog("Rex", "German Shepherd");
+console.log(dog.speak());
+            </code></pre>
+        </div>
+
+        <div class="box" id="8">
+            <h3>Error Handling</h3>
+            <pre><code>
+// Try-catch block
+try {
+    // Attempting to access undefined property
+    const user = {};
+    console.log(user.address.street);
+} catch (error) {
+    console.error('Error:', error.message);
+} finally {
+    console.log('This always runs');
+}
+
+// Custom error
+class ValidationError extends Error {
+    constructor(message) {
+        super(message);
+        this.name = 'ValidationError';
+    }
+}
+
+function validateUser(user) {
+    if (!user.name) {
+        throw new ValidationError('Name is required');
+    }
+}
+            </code></pre>
+        </div>
+
+        <div class="box" id="9">
+            <h3>Local Storage</h3>
+            <pre><code>
+// Storing data
+localStorage.setItem('user', JSON.stringify({
+    name: 'John',
+    age: 30
+}));
+
+// Retrieving data
+const user = JSON.parse(localStorage.getItem('user'));
+
+// Removing specific item
+localStorage.removeItem('user');
+
+// Clearing all data
+localStorage.clear();
+
+// Checking if item exists
+if (localStorage.getItem('user')) {
+    console.log('User exists in storage');
+}
+            </code></pre>
+        </div>
+
+        <div class="box" id="10">
+            <h3>Fetch API</h3>
+            <pre><code>
+// GET request
+fetch('https://api.example.com/data')
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error('Error:', error));
+
+// POST request
+fetch('https://api.example.com/users', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+        name: 'John',
+        age: 30
+    })
+})
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error('Error:', error));
+            </code></pre>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.box').forEach(box => {
+            const codeBlock = box.querySelector('code');
+            const copyButton = document.createElement('button');
+            copyButton.className = 'copy-btn';
+            copyButton.innerHTML = '<i class="fas fa-copy"></i> Copy';
+            
+            copyButton.addEventListener('click', async () => {
+                try {
+                    await navigator.clipboard.writeText(codeBlock.textContent.trim());
+                    copyButton.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                    copyButton.classList.add('copied');
+                    setTimeout(() => {
+                        copyButton.innerHTML = '<i class="fas fa-copy"></i> Copy';
+                        copyButton.classList.remove('copied');
+                    }, 2000);
+                } catch (err) {
+                    console.error('Failed to copy text: ', err);
+                }
+            });
+            
+            box.appendChild(copyButton);
+        });
+    </script>
+</body>
+</html>
