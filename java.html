@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeX - Java Programming</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+  
+        <nav>
+            <div class="nav-content">
+                <div class="logo">
+                    <h1>Code<span>X</span></h1>
+                </div>
+                <div class="nav-profile">
+                    <div class="profile-mini">
+                        <img src="profile.jpeg" alt="Abdul Mausooq">
+                    </div>
+                    <div class="nav-menu-backdrop"></div>
+                    <div class="nav-menu">
+                        <a href="index.html#home"><i class="fas fa-home"></i>Home</a>
+                        <a href="index.html#languages"><i class="fas fa-code"></i>Languages</a>
+                        <a href="index.html#about"><i class="fas fa-user"></i>About</a>
+                        <a href="index.html#contact"><i class="fas fa-envelope"></i>Contact</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+   
+    
+    <div class="sem">
+        <a href="c.html">C</a>
+        <a href="python.html">Python</a>
+        <a href="java.html" class="active">Java</a>
+        <a href="go.html">Go</a>
+        <a href="javascript.html">JavaScript</a>
+        <a href="rust.html">Rust</a>
+    </div>
+
+    <div class="cont">
+        <div class="box" id="1">
+            <h3>Hello World in Java</h3>
+            <pre><code>
+public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+    }
+}
+            </code></pre>
+        </div>
+
+        <div class="box" id="2">
+            <h3>Object-Oriented Programming</h3>
+            <pre><code>
+class Student {
+    private String name;
+    private int age;
+
+    public Student(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public void displayInfo() {
+        System.out.println("Name: " + name + ", Age: " + age);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Student student = new Student("John", 20);
+        student.displayInfo();
+    }
+}
+            </code></pre>
+        </div>
+
+        <div class="box" id="3">
+            <h3>Array Operations</h3>
+            <pre><code>
+import java.util.Arrays;
+
+public class ArrayOperations {
+    public static void main(String[] args) {
+        int[] numbers = {5, 2, 8, 1, 9};
+        
+        // Sorting
+        Arrays.sort(numbers);
+        System.out.println("Sorted: " + Arrays.toString(numbers));
+        
+        // Binary Search
+        int index = Arrays.binarySearch(numbers, 8);
+        System.out.println("Found 8 at index: " + index);
+        
+        // Fill array
+        int[] filled = new int[5];
+        Arrays.fill(filled, 10);
+        System.out.println("Filled array: " + Arrays.toString(filled));
+    }
+}
+            </code></pre>
+        </div>
+
+        <div class="box" id="4">
+            <h3>Exception Handling</h3>
+            <pre><code>
+public class ExceptionExample {
+    public static void divide(int a, int b) {
+        try {
+            int result = a / b;
+            System.out.println("Result: " + result);
+        } catch (ArithmeticException e) {
+            System.out.println("Error: Division by zero!");
+        } finally {
+            System.out.println("Operation completed");
+        }
+    }
+
+    public static void main(String[] args) {
+        divide(10, 2);
+        divide(10, 0);
+    }
+}
+            </code></pre>
+        </div>
+
+        <div class="box" id="5">
+            <h3>ArrayList Example</h3>
+            <pre><code>
+import java.util.ArrayList;
+
+public class ArrayListDemo {
+    public static void main(String[] args) {
+        ArrayList<String> list = new ArrayList<>();
+        
+        // Adding elements
+        list.add("Java");
+        list.add("Python");
+        list.add("JavaScript");
+        
+        // Displaying elements
+        System.out.println("List: " + list);
+        
+        // Removing element
+        list.remove("Python");
+        
+        // Checking contains
+        System.out.println("Contains Java? " + list.contains("Java"));
+        
+        // Size of list
+        System.out.println("Size: " + list.size());
+    }
+}
+            </code></pre>
+        </div>
+
+        <div class="box" id="6">
+            <h3>File Handling</h3>
+            <pre><code>
+import java.io.*;
+
+public class FileHandling {
+    public static void main(String[] args) {
+        try {
+            // Writing to file
+            FileWriter writer = new FileWriter("test.txt");
+            writer.write("Hello, this is a test file!");
+            writer.close();
+
+            // Reading from file
+            FileReader reader = new FileReader("test.txt");
+            BufferedReader buffReader = new BufferedReader(reader);
+            String line = buffReader.readLine();
+            System.out.println("Read: " + line);
+            buffReader.close();
+        } catch (IOException e) {
+            System.out.println("An error occurred: " + e.getMessage());
+        }
+    }
+}
+            </code></pre>
+        </div>
+
+        <div class="box" id="7">
+            <h3>Inheritance Example</h3>
+            <pre><code>
+class Animal {
+    void makeSound() {
+        System.out.println("Some sound");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    void makeSound() {
+        System.out.println("Woof!");
+    }
+}
+
+public class InheritanceDemo {
+    public static void main(String[] args) {
+        Animal dog = new Dog();
+        dog.makeSound();
+    }
+}
+            </code></pre>
+        </div>
+
+        <div class="box" id="8">
+            <h3>Interface Implementation</h3>
+            <pre><code>
+interface Shape {
+    double getArea();
+}
+
+class Circle implements Shape {
+    private double radius;
+    
+    public Circle(double radius) {
+        this.radius = radius;
+    }
+    
+    @Override
+    public double getArea() {
+        return Math.PI * radius * radius;
+    }
+}
+
+public class InterfaceDemo {
+    public static void main(String[] args) {
+        Shape circle = new Circle(5);
+        System.out.println("Area: " + circle.getArea());
+    }
+}
+            </code></pre>
+        </div>
+
+        <div class="box" id="9">
+            <h3>Multithreading</h3>
+            <pre><code>
+class MyThread extends Thread {
+    public void run() {
+        for(int i = 0; i < 5; i++) {
+            System.out.println(Thread.currentThread().getId() + " Value " + i);
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                System.out.println(e);
+            }
+        }
+    }
+}
+
+public class ThreadDemo {
+    public static void main(String args[]) {
+        MyThread thread1 = new MyThread();
+        MyThread thread2 = new MyThread();
+        thread1.start();
+        thread2.start();
+    }
+}
+            </code></pre>
+        </div>
+
+        <div class="box" id="10">
+            <h3>Collections Framework</h3>
+            <pre><code>
+import java.util.*;
+
+public class CollectionsDemo {
+    public static void main(String[] args) {
+        // ArrayList
+        List<String> list = new ArrayList<>();
+        list.add("Apple");
+        list.add("Banana");
+        
+        // HashSet
+        Set<Integer> set = new HashSet<>();
+        set.add(1);
+        set.add(2);
+        
+        // HashMap
+        Map<String, Integer> map = new HashMap<>();
+        map.put("One", 1);
+        map.put("Two", 2);
+        
+        System.out.println("List: " + list);
+        System.out.println("Set: " + set);
+        System.out.println("Map: " + map);
+    }
+}
+            </code></pre>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.box').forEach(box => {
+            const codeBlock = box.querySelector('code');
+            const copyButton = document.createElement('button');
+            copyButton.className = 'copy-btn';
+            copyButton.innerHTML = '<i class="fas fa-copy"></i> Copy';
+            
+            copyButton.addEventListener('click', async () => {
+                try {
+                    await navigator.clipboard.writeText(codeBlock.textContent.trim());
+                    copyButton.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                    copyButton.classList.add('copied');
+                    setTimeout(() => {
+                        copyButton.innerHTML = '<i class="fas fa-copy"></i> Copy';
+                        copyButton.classList.remove('copied');
+                    }, 2000);
+                } catch (err) {
+                    console.error('Failed to copy text: ', err);
+                }
+            });
+            
+            box.appendChild(copyButton);
+        });
+    </script>
+</body>
+</html> 
