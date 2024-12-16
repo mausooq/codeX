@@ -41,116 +41,381 @@
 
     <div class="cont">
         <div class="box" id="1">
-            <h3>Hello World in Java</h3>
+            <h3>Develop a JAVA program to add TWO matrices of suitable order N </h3>
             <pre><code>
-public class HelloWorld {
+public class MatrixAddition {
     public static void main(String[] args) {
-        System.out.println("Hello, World!");
+        // Check if the number of command-line arguments is valid
+        if (args.length != 1) {
+            System.out.println("Usage: java MatrixAddition <N>");
+            return;
+        }
+
+        // Parse the command-line argument as the size of the matrices
+        int N = Integer.parseInt(args[0]);
+
+        // Create two matrices of size N x N
+        int[][] matrix1 = new int[N][N];
+        int[][] matrix2 = new int[N][N];
+
+        // Initialize the matrices with random values (for demonstration)
+        initializeMatrix(matrix1);
+        initializeMatrix(matrix2);
+
+        // Print the original matrices
+        System.out.println("Matrix 1:");
+        printMatrix(matrix1);
+        System.out.println("Matrix 2:");
+        printMatrix(matrix2);
+
+        // Add the matrices
+        int[][] sumMatrix = addMatrices(matrix1, matrix2);
+
+        // Print the result
+        System.out.println("Sum of the matrices:");
+        printMatrix(sumMatrix);
+    }
+
+    // Method to initialize a matrix with random values (for demonstration)
+    public static void initializeMatrix(int[][] matrix) {
+        int N = matrix.length;
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
+                matrix[i][j] = (int) (Math.random() * 10);
+            }
+        }
+    }
+
+    // Method to add two matrices
+    public static int[][] addMatrices(int[][] matrix1, int[][] matrix2) {
+        int N = matrix1.length;
+        int[][] sumMatrix = new int[N][N];
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
+                sumMatrix[i][j] = matrix1[i][j] + matrix2[i][j];
+            }
+        }
+        return sumMatrix;
+    }
+
+    // Method to print a matrix
+    public static void printMatrix(int[][] matrix) {
+        int N = matrix.length;
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
+                System.out.print(matrix[i][j] + " ");
+            }
+            System.out.println();
+        }
+        System.out.println();
     }
 }
+
             </code></pre>
         </div>
 
         <div class="box" id="2">
-            <h3>Object-Oriented Programming</h3>
+            <h3>Develop a stack class to hold a maximum of 10 integers with suitable methods. Develop a JAVA main method to illustrate Stack operations.</h3>
             <pre><code>
-class Student {
-    private String name;
-    private int age;
+public class Stack {
+    private int[] elements;
+    private int top; // Index of the top element in the stack
+    private static final int MAX_SIZE = 10; // Maximum size of the stack
 
-    public Student(String name, int age) {
-        this.name = name;
-        this.age = age;
+    public Stack() {
+        elements = new int[MAX_SIZE];
+        top = -1; // Stack is initially empty
     }
 
-    public void displayInfo() {
-        System.out.println("Name: " + name + ", Age: " + age);
+    // Method to check if the stack is empty
+    public boolean isEmpty() {
+        return top == -1;
     }
-}
 
-public class Main {
+    // Method to check if the stack is full
+    public boolean isFull() {
+        return top == MAX_SIZE - 1;
+    }
+
+    // Method to push an element onto the stack
+    public void push(int element) {
+        if (isFull()) {
+            System.out.println("Stack overflow! Cannot push element " + element);
+            return;
+        }
+        elements[++top] = element;
+        System.out.println("Pushed element " + element + " onto the stack");
+    }
+
+    // Method to pop an element from the stack
+    public int pop() {
+        if (isEmpty()) {
+            System.out.println("Stack underflow! Cannot pop element");
+            return -1; // Return a default value indicating failure
+        }
+        int poppedElement = elements[top--];
+        System.out.println("Popped element " + poppedElement + " from the stack");
+        return poppedElement;
+    }
+
+    // Method to peek at the top element of the stack
+    public int peek() {
+        if (isEmpty()) {
+            System.out.println("Stack is empty! Cannot peek");
+            return -1; // Return a default value indicating failure
+        }
+        return elements[top];
+    }
+
+    // Method to display the elements of the stack
+    public void display() {
+        if (isEmpty()) {
+            System.out.println("Stack is empty!");
+            return;
+        }
+        System.out.print("Stack elements: ");
+        for (int i = top; i >= 0; i--) {
+            System.out.print(elements[i] + " ");
+        }
+        System.out.println();
+    }
+
     public static void main(String[] args) {
-        Student student = new Student("John", 20);
-        student.displayInfo();
+        Stack stack = new Stack();
+
+        stack.push(5);
+        stack.push(10);
+        stack.push(15);
+        stack.display();
+
+        int poppedElement = stack.pop();
+        System.out.println("Popped element: " + poppedElement);
+        stack.display();
+
+        int peekedElement = stack.peek();
+        System.out.println("Peeked element: " + peekedElement);
     }
 }
+
             </code></pre>
         </div>
 
         <div class="box" id="3">
-            <h3>Array Operations</h3>
+            <h3>Develop the Employee class and suitable main method for demonstration.</h3>
             <pre><code>
-import java.util.Arrays;
+public class Employee {
+    // Instance variables
+    private int id;
+    private String name;
+    private double salary;
 
-public class ArrayOperations {
+    // Constructor
+    public Employee(int id, String name, double salary) {
+        this.id = id;
+        this.name = name;
+        this.salary = salary;
+    }
+
+    // Method to raise salary by a given percentage
+    public void raiseSalary(double percent) {
+        double increaseAmount = salary * (percent / 100);
+        salary += increaseAmount;
+    }
+
+    // Method to display employee details
+    public void displayDetails() {
+        System.out.println("Employee ID: " + id);
+        System.out.println("Employee Name: " + name);
+        System.out.println("Employee Salary: $" + salary);
+    }
+
+    // Main method for demonstration
     public static void main(String[] args) {
-        int[] numbers = {5, 2, 8, 1, 9};
-        
-        // Sorting
-        Arrays.sort(numbers);
-        System.out.println("Sorted: " + Arrays.toString(numbers));
-        
-        // Binary Search
-        int index = Arrays.binarySearch(numbers, 8);
-        System.out.println("Found 8 at index: " + index);
-        
-        // Fill array
-        int[] filled = new int[5];
-        Arrays.fill(filled, 10);
-        System.out.println("Filled array: " + Arrays.toString(filled));
+        // Create an Employee object
+        Employee employee = new Employee(101, "John Doe", 50000);
+
+        // Display original details
+        System.out.println("Original Employee Details:");
+        employee.displayDetails();
+        System.out.println();
+
+        // Raise salary by 10%
+        System.out.println("After Salary Raise:");
+        employee.raiseSalary(10);
+        employee.displayDetails();
     }
 }
+
             </code></pre>
         </div>
 
         <div class="box" id="4">
-            <h3>Exception Handling</h3>
+            <h3>A class called MyPoint, which models a 2D point with x and y coordinates</h3>
             <pre><code>
-public class ExceptionExample {
-    public static void divide(int a, int b) {
-        try {
-            int result = a / b;
-            System.out.println("Result: " + result);
-        } catch (ArithmeticException e) {
-            System.out.println("Error: Division by zero!");
-        } finally {
-            System.out.println("Operation completed");
-        }
+public class MyPoint {
+    // Instance variables
+    private int x;
+    private int y;
+
+    // Default constructor
+    public MyPoint() {
+        this.x = 0;
+        this.y = 0;
     }
 
-    public static void main(String[] args) {
-        divide(10, 2);
-        divide(10, 0);
+    // Overloaded constructor
+    public MyPoint(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    // Method to set both x and y
+    public void setXY(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    // Method to return x and y in a 2-element int array
+    public int[] getXY() {
+        return new int[] {x, y};
+    }
+
+    // toString method
+    @Override
+    public String toString() {
+        return "(" + x + ", " + y + ")";
+    }
+
+    // Method to calculate distance from this point to another point (x, y)
+    public double distance(int x, int y) {
+        int xDiff = this.x - x;
+        int yDiff = this.y - y;
+        return Math.sqrt(xDiff * xDiff + yDiff * yDiff);
+    }
+
+    // Method to calculate distance from this point to another MyPoint object
+    public double distance(MyPoint another) {
+        return distance(another.x, another.y);
+    }
+
+    // Method to calculate distance from this point to the origin (0,0)
+    public double distance() {
+        return distance(0, 0);
     }
 }
+public class TestMyPoint {
+    public static void main(String[] args) {
+        // Create MyPoint objects
+        MyPoint point1 = new MyPoint(); // Default constructor
+        MyPoint point2 = new MyPoint(3, 4); // Overloaded constructor
+
+        // Display details of point1
+        System.out.println("Point 1 details:");
+        System.out.println("Coordinates: " + point1);
+        System.out.println("Distance from origin: " + point1.distance());
+        System.out.println();
+
+        // Display details of point2
+        System.out.println("Point 2 details:");
+        System.out.println("Coordinates: " + point2);
+        System.out.println("Distance from origin: " + point2.distance());
+        System.out.println();
+
+        // Set new coordinates for point1
+        point1.setXY(5, 6);
+
+        // Display updated details of point1
+        System.out.println("Updated Point 1 details:");
+        System.out.println("Coordinates: " + point1);
+        System.out.println("Distance from origin: " + point1.distance());
+        System.out.println();
+
+        // Calculate distance between point1 and point2
+        System.out.println("Distance between Point 1 and Point 2: " + point1.distance(point2));
+    }
+}
+
             </code></pre>
         </div>
 
         <div class="box" id="5">
-            <h3>ArrayList Example</h3>
+            <h3>Develop a JAVA program to create a class named shape. </h3>
             <pre><code>
-import java.util.ArrayList;
+class Shape {
+    // Method to draw the shape
+    public void draw() {
+        System.out.println("Drawing a shape");
+    }
 
-public class ArrayListDemo {
+    // Method to erase the shape
+    public void erase() {
+        System.out.println("Erasing a shape");
+    }
+}
+
+// Circle class (subclass of Shape)
+class Circle extends Shape {
+    // Method to draw a circle
+    @Override
+    public void draw() {
+        System.out.println("Drawing a circle");
+    }
+
+    // Method to erase a circle
+    @Override
+    public void erase() {
+        System.out.println("Erasing a circle");
+    }
+}
+
+// Triangle class (subclass of Shape)
+class Triangle extends Shape {
+    // Method to draw a triangle
+    @Override
+    public void draw() {
+        System.out.println("Drawing a triangle");
+    }
+
+    // Method to erase a triangle
+    @Override
+    public void erase() {
+        System.out.println("Erasing a triangle");
+    }
+}
+
+// Square class (subclass of Shape)
+class Square extends Shape {
+    // Method to draw a square
+    @Override
+    public void draw() {
+        System.out.println("Drawing a square");
+    }
+
+    // Method to erase a square
+    @Override
+    public void erase() {
+        System.out.println("Erasing a square");
+    }
+}
+
+// Main class to demonstrate polymorphism
+public class Main {
     public static void main(String[] args) {
-        ArrayList<String> list = new ArrayList<>();
-        
-        // Adding elements
-        list.add("Java");
-        list.add("Python");
-        list.add("JavaScript");
-        
-        // Displaying elements
-        System.out.println("List: " + list);
-        
-        // Removing element
-        list.remove("Python");
-        
-        // Checking contains
-        System.out.println("Contains Java? " + list.contains("Java"));
-        
-        // Size of list
-        System.out.println("Size: " + list.size());
+        // Create objects of different shapes
+        Shape circle = new Circle();
+        Shape triangle = new Triangle();
+        Shape square = new Square();
+
+        // Demonstrate polymorphism
+        drawAndErase(circle);
+        drawAndErase(triangle);
+        drawAndErase(square);
+    }
+
+    // Method to demonstrate polymorphism
+    public static void drawAndErase(Shape shape) {
+        shape.draw(); // Calls the draw method of the appropriate subclass
+        shape.erase(); // Calls the erase method of the appropriate subclass
     }
 }
             </code></pre>

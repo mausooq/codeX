@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeX - C++ Programming</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-content">
+            <div class="logo">
+                <h1>Code<span>X</span></h1>
+            </div>
+            <div class="nav-profile">
+                <div class="profile-mini">
+                    <img src="profile.jpeg" alt="Abdul Mausooq">
+                </div>
+                <div class="nav-menu-backdrop"></div>
+                <div class="nav-menu">
+                    <a href="index.html#home"><i class="fas fa-home"></i>Home</a>
+                    <a href="index.html#languages"><i class="fas fa-code"></i>Languages</a>
+                    <a href="index.html#about"><i class="fas fa-user"></i>About</a>
+                    <a href="index.html#contact"><i class="fas fa-envelope"></i>Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="sem">
+        <a href="c.html">C</a>
+        <a href="cpp.html" class="active">C++</a>
+        <a href="python.html">Python</a>
+        <a href="java.html">Java</a>
+        <a href="go.html">Go</a>
+        <a href="javascript.html">JavaScript</a>
+        <a href="rust.html">Rust</a>
+    </div>
+
+    <div class="cont">
+        <div class="box" id="1">
+            <h3>Object-Oriented Programming Example</h3>
+            <pre><code>
+#include &lt;iostream&gt;
+using namespace std;
+
+class Student {
+private:
+    string name;
+    int age;
+    float gpa;
+
+public:
+    Student(string n, int a, float g) {
+        name = n;
+        age = a;
+        gpa = g;
+    }
+
+    void display() {
+        cout << "Name: " << name << endl;
+        cout << "Age: " << age << endl;
+        cout << "GPA: " << gpa << endl;
+    }
+};
+
+int main() {
+    Student student("John Doe", 20, 3.8);
+    student.display();
+    return 0;
+}
+            </code></pre>
+        </div>
+
+        <div class="box" id="2">
+            <h3>Template Function</h3>
+            <pre><code>
+#include &lt;iostream&gt;
+using namespace std;
+
+template &lt;typename T&gt;
+T findMax(T a, T b) {
+    return (a > b) ? a : b;
+}
+
+int main() {
+    cout << "Max of 10 and 20: " << findMax(10, 20) << endl;
+    cout << "Max of 3.14 and 2.78: " << findMax(3.14, 2.78) << endl;
+    cout << "Max of 'a' and 'z': " << findMax('a', 'z') << endl;
+    return 0;
+}
+            </code></pre>
+        </div>
+
+        <div class="box" id="3">
+            <h3>Vector Operations</h3>
+            <pre><code>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+using namespace std;
+
+int main() {
+    vector&lt;int&gt; vec = {1, 2, 3, 4, 5};
+    int sum = 0;
+    for (int i = 0; i &lt; vec.size(); i++) {
+        sum += vec[i];
+    }
+    cout << "Sum of vector elements: " << sum << endl;
+    return 0;
+}
+            </code></pre>
+        </div>
+    </div>
+</body>
+</html> 
